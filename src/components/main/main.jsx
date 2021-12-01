@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "./main.module.css";
-import bg from "../../img/3tamp_bg.jpg";
+import Snow from "../snow/snow";
 
 const Main = (props) => {
   return (
-    <div className={styles.background}>
-      <img src={bg} alt="bg" className={styles.bg} />
+    <div className={styles.container}>
+      <div className={styles.background}>
+        <Snow />
+        <button className={styles.start_btn}>🧡 💛 3tamp 시작하기 💛 🧡</button>
+      </div>
     </div>
   );
 };
