@@ -6,7 +6,7 @@ import Snow from "../snow/snow";
 const Main = (props) => {
   const navigate = useNavigate();
   const onClick = () => {
-    navigate("/home");
+    navigate("/login");
   };
 
   return (

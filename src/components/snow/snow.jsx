@@ -3,8 +3,8 @@ import "./snow.css";
 
 const Snow = (props) => {
   return (
-    <div class="hero">
-      <div class="snow">
+    <div className="hero">
+      <div className="snow">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1024 1536"
