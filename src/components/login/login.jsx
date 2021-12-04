@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./login.module.css";
+import { FaTimes } from "react-icons/fa";
+import { AiOutlineGoogle } from "react-icons/ai";
 
 const Login = ({ authService }) => {
   const navigate = useNavigate();
@@ -11,11 +14,28 @@ const Login = ({ authService }) => {
   const onLogin = (event) => {
     authService //
       .login(event.currentTarget.textContent)
-      //.then(console.log());
       .then((data) => goToMain(data.user.uid));
   };
 
-  return <button onClick={onLogin}>Google</button>;
+  return (
+    <section className={styles.login}>
+      <div className={styles.container}>
+        <button onClick={() => navigate("/")} className={styles.close}>
+          <FaTimes className={styles.x} />
+        </button>
+        <div className={styles.message_box}>
+          <span className={styles.whoops}>앗,</span>
+          <span className={styles.message}>로그인이 필요해요!</span>
+        </div>
+        <div className={styles.image_box}></div>
+        <span>아래 버튼을 눌러 구글 로그인을 해요 : )</span>
+        <button onClick={onLogin} className={styles.google}>
+          <AiOutlineGoogle className={styles.google__icon} />
+          Google
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default Login;
