@@ -3,7 +3,7 @@ import styles from "./nav.module.css";
 import logo from "../../img/logo.png";
 import { useNavigate } from "react-router";
 
-const Nav = (props) => {
+const Nav = () => {
   const navigate = useNavigate();
 
   return (
