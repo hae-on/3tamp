@@ -60,6 +60,7 @@
 }
 
 .google {
+  cursor: pointer;
   background-color: googleColor;
   color: white;
   border-radius: 10px;

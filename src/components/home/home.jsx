@@ -1,7 +1,13 @@
 import React from "react";
+import Nav from "../nav/nav";
 
 const Home = () => {
-  return <h1>hihi</h1>;
+  return (
+    <>
+      <Nav />
+      <h1>hihi</h1>
+    </>
+  );
 };
 
 export default Home;

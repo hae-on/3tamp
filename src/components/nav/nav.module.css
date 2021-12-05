@@ -1,0 +1,59 @@
+@value keyColor from "../../common/color.css";
+
+.nav {
+  /* position: fixed; */
+  display: flex;
+  justify-content: space-between;
+  background-color: keyColor;
+  height: 4.5em;
+}
+
+.title_container {
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.title {
+  display: inline-block;
+  transform: translateY(-10px);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.logo {
+  transform: translateY(8px);
+}
+
+.memu {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.menu_item {
+  margin-right: 3em;
+  margin-top: -0.5em;
+  padding: 0.5em 0.7em 0em 0.7em;
+  height: 2em;
+  text-align: center;
+}
+
+.menu_item:hover,
+.logout:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 7px;
+  transition: 200ms ease-in;
+}
+
+.logout {
+  cursor: pointer;
+  margin-right: 1em;
+  margin-top: 0.9em;
+  padding: 0em 1em;
+  height: 2.3em;
+  background-color: transparent;
+  font-size: 1.1rem;
+}
