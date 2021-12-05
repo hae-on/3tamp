@@ -1,10 +1,10 @@
 import React from "react";
 import Nav from "../nav/nav";
 
-const Collection = (props) => {
+const Collection = ({ authService }) => {
   return (
     <>
-      <Nav />
+      <Nav authService={authService} />
       <h1>collection</h1>
     </>
   );

@@ -1,10 +1,10 @@
 import React from "react";
 import Nav from "../nav/nav";
 
-const HardMode = (props) => {
+const HardMode = ({ authService }) => {
   return (
     <>
-      <Nav />
+      <Nav authService={authService} />
       <h1>hard mode</h1>
     </>
   );

@@ -1,10 +1,10 @@
 import React from "react";
 import Nav from "../nav/nav";
 
-const Home = () => {
+const Home = ({ authService }) => {
   return (
     <>
-      <Nav />
+      <Nav authService={authService} />
       <h1>home</h1>
     </>
   );

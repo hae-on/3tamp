@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./nav.module.css";
 import logo from "../../img/logo.png";
 import { useNavigate } from "react-router";
 
-const Nav = () => {
+const Nav = ({ authService }) => {
   const navigate = useNavigate();
+
+  const onLogout = () => {
+    authService.logout();
+  };
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      if (!user) {
+        navigate("/");
+      }
+    });
+  });
 
   return (
     <section className={styles.nav}>
@@ -26,7 +38,9 @@ const Nav = () => {
           collection
         </li>
       </ul>
-      <button className={styles.logout}>logout</button>
+      <button className={styles.logout} onClick={onLogout}>
+        logout
+      </button>
     </section>
   );
 };
