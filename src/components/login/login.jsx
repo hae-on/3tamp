@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.css";
 import { FaTimes } from "react-icons/fa";
@@ -7,15 +7,21 @@ import { AiOutlineGoogle } from "react-icons/ai";
 const Login = ({ authService }) => {
   const navigate = useNavigate();
 
-  const goToMain = (userId) => {
+  const goToHome = (userId) => {
     navigate("/home", { state: { id: userId } });
   };
 
   const onLogin = (event) => {
     authService //
       .login(event.currentTarget.textContent)
-      .then((data) => goToMain(data.user.uid));
+      .then((data) => goToHome(data.user.uid));
   };
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      user && goToHome(user.uid);
+    });
+  });
 
   return (
     <section className={styles.login}>
