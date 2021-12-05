@@ -15,8 +15,8 @@ function App({ authService }) {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login authService={authService} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/hard_mode" element={<HardMode />} />
-        <Route path="/soft_mode" element={<SoftMode />} />
+        <Route path="/hardMode" element={<HardMode />} />
+        <Route path="/softMode" element={<SoftMode />} />
         <Route path="/collection" element={<Collection />} />
       </Routes>
     </BrowserRouter>

@@ -13,9 +13,18 @@ const Nav = (props) => {
         <span className={styles.title}>3tamp</span>
       </div>
       <ul className={styles.memu}>
-        <li className={styles.menu_item}>hard mode</li>
-        <li className={styles.menu_item}>soft mode</li>
-        <li className={styles.menu_item}>collection</li>
+        <li className={styles.menu_item} onClick={() => navigate("/hardMode")}>
+          hard mode
+        </li>
+        <li className={styles.menu_item} onClick={() => navigate("/softMode")}>
+          soft mode
+        </li>
+        <li
+          className={styles.menu_item}
+          onClick={() => navigate("/collection")}
+        >
+          collection
+        </li>
       </ul>
       <button className={styles.logout}>logout</button>
     </section>
