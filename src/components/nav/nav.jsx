@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./nav.module.css";
 import logo from "../../img/logo.png";
-// import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const Nav = (props) => {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <section className={styles.nav}>
-      <div className={styles.title_container}>
+      <div className={styles.title_container} onClick={() => navigate("/home")}>
         <img className={styles.logo} src={logo} alt="logo" />
         <span className={styles.title}>3tamp</span>
       </div>
