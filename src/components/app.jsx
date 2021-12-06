@@ -1,34 +1,30 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router";
 import Main from "./main/main";
 import Home from "./home/home";
 import Login from "./login/login";
 import HardMode from "./hardMode/hardMode";
 import SoftMode from "./softMode/softMode";
 import Collection from "./collection/collection";
+import Nav from "./nav/nav";
 import "./app.module.css";
 
 function App({ authService }) {
+  let location = useLocation();
+
   return (
-    <BrowserRouter>
+    <>
+      {location.pathname === "/" ? null : <Nav authService={authService} />}
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route exact path="/" element={<Main />} />
         <Route path="/login" element={<Login authService={authService} />} />
-        <Route path="/home" element={<Home authService={authService} />} />
-        <Route
-          path="/hardMode"
-          element={<HardMode authService={authService} />}
-        />
-        <Route
-          path="/softMode"
-          element={<SoftMode authService={authService} />}
-        />
-        <Route
-          path="/collection"
-          element={<Collection authService={authService} />}
-        />
+        <Route path="/home" element={<Home />} />
+        <Route path="/hardMode" element={<HardMode />} />
+        <Route path="/softMode" element={<SoftMode />} />
+        <Route path="/collection" element={<Collection />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

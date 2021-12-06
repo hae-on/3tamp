@@ -50,6 +50,11 @@
   transition: 200ms ease-in;
 }
 
+.activeStyle {
+  background-color: aqua;
+  color: blueviolet;
+}
+
 .logout {
   cursor: pointer;
   margin-right: 1em;
