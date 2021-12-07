@@ -1,6 +1,6 @@
 import React from "react";
 
-const Collection = ({ authService }) => {
+const Collection = () => {
   return (
     <>
       <h1>collection</h1>

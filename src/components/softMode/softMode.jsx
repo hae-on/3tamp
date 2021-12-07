@@ -1,6 +1,6 @@
 import React from "react";
 
-const Soft_mode = ({ authService }) => {
+const Soft_mode = () => {
   return (
     <>
       <h1>soft mode</h1>
