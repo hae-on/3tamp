@@ -52,11 +52,10 @@
 }
 
 .image_box {
-  background-color: thistle;
-  width: 13em;
-  height: 13em;
+  width: 14em;
+  height: 14em;
   margin: 0 auto;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
 }
 
 .google {
