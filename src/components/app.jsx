@@ -15,7 +15,9 @@ function App({ authService }) {
 
   return (
     <>
-      {location.pathname === "/" ? null : <Nav authService={authService} />}
+      {location.pathname === "/" || location.pathname === "/login" ? null : (
+        <Nav authService={authService} />
+      )}
       <Routes>
         <Route exact path="/" element={<Main />} />
         <Route path="/login" element={<Login authService={authService} />} />

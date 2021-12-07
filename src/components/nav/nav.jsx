@@ -6,11 +6,13 @@ import { NavLink } from "react-router-dom";
 
 const Nav = ({ authService }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onLogout = () => {
     authService.logout();
   };
 
+  // 로그아웃 시 첫 페이지 이동
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (!user) {
@@ -19,8 +21,7 @@ const Nav = ({ authService }) => {
     });
   });
 
-  const location = useLocation();
-
+  // navbar 선택 시 스타일링
   const activeTab = (location, path) => {
     if (location.pathname === path) {
       return {
