@@ -3,9 +3,28 @@ import styles from "./hardMode.module.css";
 import btn from "../../img/logo.png";
 
 const HardMode = () => {
+  const color = [
+    "#ff98a5",
+    "#ffdcb0",
+    "#fff88d",
+    "#b9ffbd",
+    "#ace8ff",
+    "#d4b4ff",
+    "#ffd1d5",
+  ];
+
+  const getRandomColor = () => {
+    return color[Math.floor(Math.random() * color.length)];
+  };
+
   return (
     <>
-      <div className={styles.box}>
+      <div
+        className={styles.box}
+        style={{
+          background: getRandomColor(color),
+        }}
+      >
         <div className={styles.head}>
           <form>
             <input
