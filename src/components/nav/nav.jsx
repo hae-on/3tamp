@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./nav.module.css";
 import logo from "../../img/logo.png";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
 const Nav = ({ authService }) => {
@@ -19,9 +19,15 @@ const Nav = ({ authService }) => {
     });
   });
 
-  const activeStyle = {
-    background: `black`,
-    color: `white`,
+  const location = useLocation();
+
+  const activeTab = (location, path) => {
+    if (location.pathname === path) {
+      return {
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
+        borderRadius: "7px",
+      };
+    }
   };
 
   return (
@@ -31,18 +37,30 @@ const Nav = ({ authService }) => {
         <span className={styles.title}>3tamp</span>
       </div>
       <ul className={styles.memu}>
-        <li className={styles.menu_item}>
-          <NavLink to="/hardMode" activeStyle={styles.activeStyle}>
+        <li>
+          <NavLink
+            to="/hardMode"
+            className={styles.menu_item}
+            style={activeTab(location, "/hardMode")}
+          >
             hard mode
           </NavLink>
         </li>
-        <li className={styles.menu_item}>
-          <NavLink to="/softMode" activeStyle={activeStyle}>
+        <li>
+          <NavLink
+            to="/softMode"
+            className={styles.menu_item}
+            style={activeTab(location, "/softMode")}
+          >
             soft mode
           </NavLink>
         </li>
-        <li className={styles.menu_item}>
-          <NavLink to="/collection" activeStyle={activeStyle}>
+        <li>
+          <NavLink
+            to="/collection"
+            className={styles.menu_item}
+            style={activeTab(location, "/collection")}
+          >
             collection
           </NavLink>
         </li>
