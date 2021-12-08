@@ -1,0 +1,32 @@
+@value keyColor,colorDarkGrey from "../../common/color.css";
+
+.modal {
+  position: absolute;
+  right: -7%;
+  top: 68%;
+  width: 300px;
+  height: 200px;
+  background-color: keyColor;
+  border-radius: 6px;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.close_btn {
+  cursor: pointer;
+  background-color: transparent;
+  position: absolute;
+  right: 0.7em;
+  top: 1em;
+}
+
+.close_btn:hover {
+  transform: scale(1.2);
+  transition: 200ms ease-in-out;
+}
+
+.x {
+  color: colorDarkGrey;
+  width: 2em;
+  height: 2em;
+}
