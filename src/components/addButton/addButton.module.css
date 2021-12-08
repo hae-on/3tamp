@@ -1,0 +1,20 @@
+@value colorBrown from "../../common/color.css";
+
+.btn {
+  cursor: pointer;
+  position: absolute;
+  right: 5em;
+  bottom: 5em;
+  background-color: transparent;
+}
+
+.add {
+  width: 4.5em;
+  height: 4.5em;
+  color: colorBrown;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  transition: 200ms ease-in-out;
+}

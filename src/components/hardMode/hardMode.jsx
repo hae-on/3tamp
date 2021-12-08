@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./hardMode.module.css";
 import btn from "../../img/logo.png";
+import AddButton from "../addButton/addButton";
 
 const HardMode = () => {
   const color = [
@@ -70,6 +71,7 @@ const HardMode = () => {
           </thead>
         </table>
       </div>
+      <AddButton />
     </>
   );
 };

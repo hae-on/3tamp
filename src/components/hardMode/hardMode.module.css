@@ -63,31 +63,3 @@ td {
   display: flex;
   justify-content: space-between;
 }
-
-.red {
-  background-color: #ff98a5;
-}
-
-.box.orange {
-  background-color: #ffdcb0;
-}
-
-.yellow {
-  background-color: #fff88d;
-}
-
-.green {
-  background-color: #b9ffbd;
-}
-
-.blue {
-  background-color: #ace8ff;
-}
-
-.box.purple {
-  background-color: #d4b4ff;
-}
-
-.box.pink {
-  background-color: #ffd1d5;
-}
