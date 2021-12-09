@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./modal.module.css";
 import { FaTimes } from "react-icons/fa";
 import { AiFillCheckCircle } from "react-icons/ai";
+import ColorBox from "../colorBox/colorBox";
 
 const Modal = ({ modalClose }) => {
   return (
@@ -13,13 +14,16 @@ const Modal = ({ modalClose }) => {
       <form className={styles.form}>
         <div className={styles.title}>
           <label>제목 </label>
-          <input type="text" className={styles.title_input}></input>
+          <input
+            type="text"
+            className={styles.title_input}
+            maxLength="15"
+          ></input>
         </div>
         <div className={styles.color}>
-          <label>색상 </label>
-          <input type="color"></input>
+          <label className={styles.color_label}>색상 </label>
+          <ColorBox />
         </div>
-        {/* <input type="submit"></input> */}
         <button type="submit" className={styles.check_btn}>
           <AiFillCheckCircle className={styles.check} />
         </button>

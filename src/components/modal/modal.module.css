@@ -61,6 +61,19 @@ label {
   padding: 0.2em 0.4em;
 }
 
+.title_input:focus {
+  outline: none;
+}
+
+.color {
+  display: flex;
+  margin-top: 0.3em;
+}
+
+.color_label {
+  margin-right: 0.7em;
+}
+
 .check_btn {
   cursor: pointer;
   position: absolute;
