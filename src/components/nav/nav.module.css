@@ -19,7 +19,7 @@
   transform: translateY(-10px);
   font-size: 2rem;
   font-weight: 700;
-  color: colorLightBlack;
+  color: colorDarkGrey;
 }
 
 .logo {
@@ -44,7 +44,7 @@
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
-  color: colorLightBlack;
+  color: colorDarkGrey;
 }
 
 .menu_item:hover,
@@ -62,4 +62,5 @@
   height: 2.3em;
   background-color: transparent;
   font-size: 1.1rem;
+  color: colorDarkGrey;
 }

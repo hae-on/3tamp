@@ -4,6 +4,7 @@ label {
   font-size: 1.1rem;
   font-weight: 500;
   margin-right: 0.4em;
+  color: colorDarkGrey;
 }
 
 .container {
@@ -21,7 +22,7 @@ label {
   right: -7%;
   top: 68%;
   width: 300px;
-  height: 220px;
+  height: 250px;
   background-color: white;
   border-radius: 6px;
   transform: translate(-50%, -50%);
@@ -32,8 +33,9 @@ label {
   position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  margin-top: 2em;
+  margin-top: 2.5em;
   margin-left: 1.5em;
+  color: colorDarkGrey;
 }
 
 .close_btn {
@@ -56,7 +58,7 @@ label {
 }
 
 .form {
-  margin-top: 5.3em;
+  margin-top: 6.4em;
   display: flex;
   flex-direction: column;
   margin-left: 2em;
