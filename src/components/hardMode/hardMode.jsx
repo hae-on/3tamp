@@ -15,13 +15,20 @@ const HardMode = () => {
       title: "영어 단어 외우기",
       color: "purple",
     },
+    {
+      id: "3",
+      title: "책 읽기",
+      color: "orange",
+    },
   ]);
 
   return (
     <>
-      {hardBoxes.map((hardBox) => (
-        <HardModeBox hardBox={hardBox} />
-      ))}
+      <div className={styles.boxes}>
+        {hardBoxes.map((hardBox) => (
+          <HardModeBox hardBox={hardBox} />
+        ))}
+      </div>
 
       <AddButton hardBoxes={hardBoxes} />
     </>

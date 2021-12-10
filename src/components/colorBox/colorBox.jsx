@@ -4,7 +4,7 @@ import styles from "./colorBox.module.css";
 const ColorBox = (props) => {
   const color = [
     { key: "red", value: "#ff98a5" },
-    { key: "orenge", value: "#ffdcb0" },
+    { key: "orange", value: "#ffdcb0" },
     { key: "yellow", value: "#fff88d" },
     { key: "green", value: "#b9ffbd" },
     { key: "blue", value: "#ace8ff" },
