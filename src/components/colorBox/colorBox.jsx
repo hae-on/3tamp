@@ -18,7 +18,7 @@ const ColorBox = (props) => {
         {color.map((colors) => (
           <div
             onClick={() => {
-              console.log(colors.key);
+              props.setColor(colors.key);
             }}
             key={colors.key}
             className={styles.hi}
