@@ -26,11 +26,11 @@ const HardMode = () => {
     <>
       <div className={styles.boxes}>
         {hardBoxes.map((hardBox) => (
-          <HardModeBox hardBox={hardBox} />
+          <HardModeBox key={hardBox.id} hardBox={hardBox} />
         ))}
       </div>
 
-      <AddButton hardBoxes={hardBoxes} />
+      <AddButton key={hardBoxes.id} hardBoxes={hardBoxes} />
     </>
   );
 };
