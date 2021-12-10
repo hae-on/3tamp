@@ -21,8 +21,8 @@ const ColorBox = (props) => {
               props.setColor(colors.key);
             }}
             key={colors.key}
-            className={styles.hi}
-            style={{ background: colors.value }}
+            className={styles.color}
+            style={{ background: colors.value, border: "1px solid black" }}
           ></div>
         ))}
       </div>
