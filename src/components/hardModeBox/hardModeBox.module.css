@@ -1,8 +1,8 @@
 @value colorDarkGrey, keyColor from "../../common/color.css";
 
 table {
-  width: 80%;
-  height: 60%;
+  width: 450px;
+  height: 200px;
   margin: 0 auto;
   border-top: 2px solid colorDarkGrey;
   border-collapse: collapse;
@@ -15,6 +15,13 @@ td {
   border-bottom: 2px solid colorDarkGrey;
   padding: 10px;
   text-align: center;
+}
+
+td {
+  cursor: pointer;
+  width: 2em;
+  height: 2em;
+  padding: 0;
 }
 
 .box {
@@ -89,4 +96,10 @@ td {
 
 .box.pink {
   background-color: #ffd1e9;
+}
+
+.hard_o {
+  background-image: url("../../img/hard_o.png");
+  background-size: 4em 4em;
+  background-repeat: no-repeat;
 }

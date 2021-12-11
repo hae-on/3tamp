@@ -3,7 +3,7 @@ import styles from "./hardMode.module.css";
 import AddButton from "../addButton/addButton";
 import HardModeBox from "../hardModeBox/hardModeBox";
 
-const HardMode = ({}) => {
+const HardMode = () => {
   const [hardBoxes, setHardBoxes] = useState([
     {
       id: "1",
