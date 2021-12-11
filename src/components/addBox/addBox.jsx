@@ -3,8 +3,6 @@ import styles from "./addBox.module.css";
 import { FaTimes } from "react-icons/fa";
 import { AiFillCheckCircle } from "react-icons/ai";
 import ColorBox from "../colorBox/colorBox";
-// import { dbService } from "../../service/firebase";
-// import { addDoc, collection } from "@firebase/firestore";
 
 const AddBox = ({ modalClose, onAdd }) => {
   const [title, setTitle] = useState("");
@@ -13,25 +11,22 @@ const AddBox = ({ modalClose, onAdd }) => {
   const formRef = useRef("");
   const titleRef = useRef();
 
+  // 오늘 날짜 받아오기
+  let today = new Date();
+  let time = {
+    year: today.getFullYear(),
+    month: today.getMonth() + 1,
+    date: today.getDate(),
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     const hardBox = {
       id: Date.now(),
       title: titleRef.current.value || "",
       color: color || "red",
+      startDate: `${time.year}/${time.month}/${time.date}`,
     };
-    // try {
-    //   const docRef = await addDoc(collection(dbService, "box"), {
-    //     title,
-    //     color,
-    //     createdAt: Date.now(),
-    //   });
-    //   console.log("Document written with ID: ", docRef.id);
-    // } catch (error) {
-    //   console.error("Error adding document: ", error);
-    // }
-    // setTitle("");
-    // setColor("");
     formRef.current.reset();
     onAdd(hardBox);
   };

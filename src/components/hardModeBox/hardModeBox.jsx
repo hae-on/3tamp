@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styles from "./hardModeBox.module.css";
 import btn from "../../img/logo.png";
-import hard_o from "../../img/hard_o.png";
-import hard_x from "../../img/hard_x.png";
 
 const HardModeBox = ({ hardBox }) => {
   const { title, color } = hardBox;
@@ -26,9 +24,10 @@ const HardModeBox = ({ hardBox }) => {
         <table border="2" className={styles.table}>
           <thead>
             <tr>
-              <td className={clicked ? styles.hard_o : null} onClick={onClick}>
-                {/* <img class={styles.hard_o} src={hard_o} alt="o" /> */}
-              </td>
+              <td
+                className={clicked ? styles.hard_o : null}
+                onClick={onClick}
+              ></td>
               <td></td>
               <td></td>
               <td></td>
