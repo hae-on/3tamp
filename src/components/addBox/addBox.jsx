@@ -18,7 +18,7 @@ const AddBox = ({ modalClose, onAdd }) => {
     const hardBox = {
       id: Date.now(),
       title: titleRef.current.value || "",
-      color: color,
+      color: color || "red",
     };
     // try {
     //   const docRef = await addDoc(collection(dbService, "box"), {
@@ -36,6 +36,13 @@ const AddBox = ({ modalClose, onAdd }) => {
     onAdd(hardBox);
   };
 
+  const onChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setTitle(value);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
@@ -49,6 +56,7 @@ const AddBox = ({ modalClose, onAdd }) => {
             <input
               ref={titleRef}
               value={title}
+              onChange={onChange}
               type="text"
               className={styles.title_input}
               maxLength="15"
