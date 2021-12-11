@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./hardMode.module.css";
 import AddButton from "../addButton/addButton";
 import HardModeBox from "../hardModeBox/hardModeBox";
 
-const HardMode = () => {
+const HardMode = ({}) => {
   const [hardBoxes, setHardBoxes] = useState([
     {
       id: "1",
@@ -22,6 +22,11 @@ const HardMode = () => {
     },
   ]);
 
+  const addHardBox = (hardBox) => {
+    const updated = [...hardBoxes, hardBox];
+    setHardBoxes(updated);
+  };
+
   return (
     <section className={styles.hardMode}>
       <div className={styles.boxes}>
@@ -30,7 +35,11 @@ const HardMode = () => {
         ))}
       </div>
       <div className={styles.add_btn}>
-        <AddButton key={hardBoxes.id} hardBoxes={hardBoxes} />
+        <AddButton
+          key={hardBoxes.id}
+          hardBoxes={hardBoxes}
+          addHardBox={addHardBox}
+        />
       </div>
     </section>
   );

@@ -1,17 +1,25 @@
-import React, { useState } from "react";
-import styles from "./modal.module.css";
+import React, { useRef, useState } from "react";
+import styles from "./addBox.module.css";
 import { FaTimes } from "react-icons/fa";
 import { AiFillCheckCircle } from "react-icons/ai";
 import ColorBox from "../colorBox/colorBox";
-import { dbService } from "../../service/firebase";
-import { addDoc, collection } from "@firebase/firestore";
+// import { dbService } from "../../service/firebase";
+// import { addDoc, collection } from "@firebase/firestore";
 
-const Modal = ({ modalClose }) => {
+const AddBox = ({ modalClose, onAdd }) => {
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
 
+  const formRef = useRef("");
+  const titleRef = useRef();
+
   const onSubmit = async (event) => {
     event.preventDefault();
+    const hardBox = {
+      id: Date.now(),
+      title: titleRef.current.value || "",
+      color: color,
+    };
     // try {
     //   const docRef = await addDoc(collection(dbService, "box"), {
     //     title,
@@ -24,13 +32,8 @@ const Modal = ({ modalClose }) => {
     // }
     // setTitle("");
     // setColor("");
-  };
-
-  const onChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setTitle(value);
+    formRef.current.reset();
+    onAdd(hardBox);
   };
 
   return (
@@ -40,12 +43,12 @@ const Modal = ({ modalClose }) => {
         <button onClick={modalClose} className={styles.close_btn}>
           <FaTimes className={styles.x} />
         </button>
-        <form className={styles.form} onSubmit={onSubmit}>
+        <form ref={formRef} className={styles.form} onSubmit={onSubmit}>
           <div className={styles.title}>
             <label>제목 </label>
             <input
+              ref={titleRef}
               value={title}
-              onChange={onChange}
               type="text"
               className={styles.title_input}
               maxLength="15"
@@ -64,4 +67,4 @@ const Modal = ({ modalClose }) => {
   );
 };
 
-export default Modal;
+export default AddBox;

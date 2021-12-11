@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import styles from "./addButton.module.css";
-import Modal from "../modal/modal";
+import AddBox from "../addBox/addBox";
 
-const AddButton = (props) => {
+const AddButton = ({ addHardBox }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const modalClose = () => {
     setModalOpen(!modalOpen);
@@ -14,7 +14,7 @@ const AddButton = (props) => {
       <button onClick={modalClose} className={styles.btn}>
         <AiFillPlusCircle className={styles.add_icon} />
       </button>
-      {modalOpen && <Modal modalClose={modalClose}></Modal>}
+      {modalOpen && <AddBox onAdd={addHardBox} modalClose={modalClose} />}
     </>
   );
 };
