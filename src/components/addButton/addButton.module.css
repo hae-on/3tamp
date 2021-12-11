@@ -2,15 +2,12 @@
 
 .btn {
   cursor: pointer;
-  position: absolute;
-  right: 5em;
-  bottom: 5em;
   background-color: transparent;
 }
 
-.add {
-  width: 4.5em;
-  height: 4.5em;
+.add_icon {
+  width: 5em;
+  height: 5em;
   color: colorBrown;
 }
 

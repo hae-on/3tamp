@@ -12,18 +12,18 @@ const Modal = ({ modalClose }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const docRef = await addDoc(collection(dbService, "box"), {
-        title,
-        color,
-        createdAt: Date.now(),
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
-    setTitle("");
-    setColor("");
+    // try {
+    //   const docRef = await addDoc(collection(dbService, "box"), {
+    //     title,
+    //     color,
+    //     createdAt: Date.now(),
+    //   });
+    //   console.log("Document written with ID: ", docRef.id);
+    // } catch (error) {
+    //   console.error("Error adding document: ", error);
+    // }
+    // setTitle("");
+    // setColor("");
   };
 
   const onChange = (event) => {

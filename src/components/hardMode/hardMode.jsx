@@ -23,15 +23,16 @@ const HardMode = () => {
   ]);
 
   return (
-    <>
+    <section className={styles.hardMode}>
       <div className={styles.boxes}>
         {hardBoxes.map((hardBox) => (
           <HardModeBox key={hardBox.id} hardBox={hardBox} />
         ))}
       </div>
-
-      <AddButton key={hardBoxes.id} hardBoxes={hardBoxes} />
-    </>
+      <div className={styles.add_btn}>
+        <AddButton key={hardBoxes.id} hardBoxes={hardBoxes} />
+      </div>
+    </section>
   );
 };
 

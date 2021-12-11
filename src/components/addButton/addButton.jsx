@@ -12,7 +12,7 @@ const AddButton = (props) => {
   return (
     <>
       <button onClick={modalClose} className={styles.btn}>
-        <AiFillPlusCircle className={styles.add} />
+        <AiFillPlusCircle className={styles.add_icon} />
       </button>
       {modalOpen && <Modal modalClose={modalClose}></Modal>}
     </>
