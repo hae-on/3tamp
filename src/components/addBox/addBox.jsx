@@ -12,20 +12,13 @@ const AddBox = ({ modalClose, onAdd }) => {
   const titleRef = useRef();
 
   // 오늘 날짜 받아오기
-  let today = new Date();
-  let time = {
-    year: today.getFullYear(),
-    month: today.getMonth() + 1,
-    date: today.getDate(),
-  };
-
   const onSubmit = async (event) => {
     event.preventDefault();
     const hardBox = {
       id: Date.now(),
       title: titleRef.current.value || "",
       color: color || "red",
-      startDate: `${time.year}/${time.month}/${time.date}`,
+      startDate: new Date(),
     };
     formRef.current.reset();
     onAdd(hardBox);

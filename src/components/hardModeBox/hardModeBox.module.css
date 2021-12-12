@@ -103,3 +103,10 @@ td {
   background-size: 4em 4em;
   background-repeat: no-repeat;
 }
+
+.a {
+  background-color: white;
+  width: 4em;
+  height: 4em;
+  /* display: flex; */
+}

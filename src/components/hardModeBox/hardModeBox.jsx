@@ -3,12 +3,35 @@ import styles from "./hardModeBox.module.css";
 import btn from "../../img/logo.png";
 
 const HardModeBox = ({ hardBox }) => {
-  const { title, color } = hardBox;
+  const { title, color, startDate, endDate } = hardBox;
   const [clicked, setClicked] = useState(false);
 
   const onClick = () => {
     setClicked(!clicked);
   };
+
+  // 3주 기간 계산
+  function getDates(startDate, endDate) {
+    const dates = [];
+    let currentDate = startDate;
+    const addDays = function (days) {
+      // 데이터 원시 값 반환
+      const date = new Date(this.valueOf());
+      date.setDate(date.getDate() + days);
+      return date;
+    };
+    while (currentDate <= endDate) {
+      dates.push(currentDate);
+      currentDate = addDays.call(currentDate, 1);
+    }
+    return dates;
+  }
+
+  // Usage
+  let dates = getDates(startDate, endDate);
+  dates = dates.map((x) => x.toISOString().substring(0, 10));
+
+  console.log(dates);
 
   return (
     <>
@@ -23,36 +46,23 @@ const HardModeBox = ({ hardBox }) => {
         </div>
         <table border="2" className={styles.table}>
           <thead>
-            <tr>
-              <td
-                className={clicked ? styles.hard_o : null}
-                onClick={onClick}
-              ></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+            {/* <tr> */}
+            {dates.map((day) => (
+              <tr>
+                <td>{day}</td>
+              </tr>
+            ))}
+            {/* {dates.map((day) => (
+                <td
+                  key={day}
+                  className={styles.a}
+                  // className={clicked ? styles.hard_o : null}
+                  onClick={onClick}
+                >
+                  {day}
+                </td>
+              ))} */}
+            {/* </tr> */}
           </thead>
         </table>
       </div>

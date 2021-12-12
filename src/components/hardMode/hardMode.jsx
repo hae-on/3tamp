@@ -9,26 +9,28 @@ const HardMode = () => {
       id: "1",
       title: "html 공부하기",
       color: "red",
-      startDate: "2021.12.14",
+      startDate: new Date(2021, 11, 27),
+      endDate: new Date(2021, 12, 16),
     },
-    {
-      id: "2",
-      title: "영어 단어 외우기",
-      color: "purple",
-      startDate: "2021.12.11",
-    },
-    {
-      id: "3",
-      title: "책 읽기",
-      color: "orange",
-      startDate: "2021.12.18",
-    },
+    // {
+    //   id: "2",
+    //   title: "영어 단어 외우기",
+    //   color: "purple",
+    //   startDate: "2021. 12. 11.",
+    // },
+    // {
+    //   id: "3",
+    //   title: "책 읽기",
+    //   color: "orange",
+    //   startDate: "2021. 12. 18.",
+    // },
   ]);
 
+  // console.log(hardBoxes[0].startDate);
+
   const addHardBox = (hardBox) => {
-    // const updated = [...hardBoxes, hardBox];
-    // setHardBoxes(updated);
-    console.log(hardBox);
+    const updated = [...hardBoxes, hardBox];
+    setHardBoxes(updated);
   };
 
   return (
