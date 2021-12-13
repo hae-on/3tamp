@@ -46,23 +46,18 @@ const HardModeBox = ({ hardBox }) => {
         </div>
         <table border="2" className={styles.table}>
           <thead>
-            {/* <tr> */}
-            {dates.map((day) => (
-              <tr>
-                <td>{day}</td>
-              </tr>
-            ))}
-            {/* {dates.map((day) => (
+            <tr className={styles.dates}>
+              {dates.map((day) => (
                 <td
                   key={day}
-                  className={styles.a}
+                  className={styles.date}
                   // className={clicked ? styles.hard_o : null}
                   onClick={onClick}
                 >
                   {day}
                 </td>
-              ))} */}
-            {/* </tr> */}
+              ))}
+            </tr>
           </thead>
         </table>
       </div>
