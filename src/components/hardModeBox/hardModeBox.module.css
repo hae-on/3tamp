@@ -111,3 +111,7 @@ td {
   background-size: 4em 4em;
   background-repeat: no-repeat;
 }
+
+.hard_x {
+  background: none;
+}

@@ -6,22 +6,13 @@ const HardModeBox = ({ hardBox }) => {
   const { title, color, startDate, endDate } = hardBox;
   const [clicked, setClicked] = useState([]);
 
-  // const onClick = (event) => {
-  //   setClicked(!clicked);
-  //   console.log(event.target.getAttribute("data-index"));
-  // };
-
-  const stamp = (index) => {
-    if (clicked.indexOf(index) === -1) {
-      setClicked([...clicked, index]);
-    }
+  // 스탬프 toggle
+  const toggleStamp = (id) => {
+    setClicked((stamp) => ({
+      ...stamp,
+      [id]: !stamp[id],
+    }));
   };
-
-  // const stamp = (index )=> {
-  //   if(setClicked(index) === !clicked){
-
-  //   }
-  // }
 
   // 3주 기간 계산
   function getDates(startDate, endDate) {
@@ -39,8 +30,7 @@ const HardModeBox = ({ hardBox }) => {
     }
     return dates;
   }
-
-  // Usage
+  // 기간 출력
   let dates = getDates(startDate, endDate);
   dates = dates.map((x) => x.toISOString().substring(0, 10));
 
@@ -61,15 +51,13 @@ const HardModeBox = ({ hardBox }) => {
               {dates.map((day, index) => (
                 <td
                   key={index}
-                  data-index={index}
                   className={
-                    clicked.indexOf(index) !== -1
+                    clicked[index]
                       ? `${styles.date} ${styles.hard_o}`
                       : styles.date
                   }
                   onClick={() => {
-                    stamp(index);
-                    // handleIDX(index);
+                    toggleStamp(index);
                   }}
                 >
                   {day}
