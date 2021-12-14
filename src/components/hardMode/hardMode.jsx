@@ -12,12 +12,13 @@ const HardMode = () => {
       startDate: new Date(2021, 11, 27),
       endDate: new Date(2021, 12, 16),
     },
-    // {
-    //   id: "2",
-    //   title: "영어 단어 외우기",
-    //   color: "purple",
-    //   startDate: "2021. 12. 11.",
-    // },
+    {
+      id: "2",
+      title: "영어 단어 외우기",
+      color: "purple",
+      startDate: new Date(2021, 11, 30),
+      endDate: new Date(2021, 12, 19),
+    },
     // {
     //   id: "3",
     //   title: "책 읽기",

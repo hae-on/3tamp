@@ -4,11 +4,24 @@ import btn from "../../img/logo.png";
 
 const HardModeBox = ({ hardBox }) => {
   const { title, color, startDate, endDate } = hardBox;
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState([]);
 
-  const onClick = () => {
-    setClicked(!clicked);
+  // const onClick = (event) => {
+  //   setClicked(!clicked);
+  //   console.log(event.target.getAttribute("data-index"));
+  // };
+
+  const stamp = (index) => {
+    if (clicked.indexOf(index) === -1) {
+      setClicked([...clicked, index]);
+    }
   };
+
+  // const stamp = (index )=> {
+  //   if(setClicked(index) === !clicked){
+
+  //   }
+  // }
 
   // 3주 기간 계산
   function getDates(startDate, endDate) {
@@ -31,8 +44,6 @@ const HardModeBox = ({ hardBox }) => {
   let dates = getDates(startDate, endDate);
   dates = dates.map((x) => x.toISOString().substring(0, 10));
 
-  console.log(dates);
-
   return (
     <>
       <div className={`${styles.box} ${getStyles(color)}`}>
@@ -47,12 +58,19 @@ const HardModeBox = ({ hardBox }) => {
         <table border="2" className={styles.table}>
           <thead>
             <tr className={styles.dates}>
-              {dates.map((day) => (
+              {dates.map((day, index) => (
                 <td
-                  key={day}
-                  className={styles.date}
-                  // className={clicked ? styles.hard_o : null}
-                  onClick={onClick}
+                  key={index}
+                  data-index={index}
+                  className={
+                    clicked.indexOf(index) !== -1
+                      ? `${styles.date} ${styles.hard_o}`
+                      : styles.date
+                  }
+                  onClick={() => {
+                    stamp(index);
+                    // handleIDX(index);
+                  }}
                 >
                   {day}
                 </td>
