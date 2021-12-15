@@ -14,8 +14,6 @@ const HardModeBox = ({ hardBox }) => {
     }));
   };
 
-  console.log(clicked);
-
   // 3주 기간 계산
   function getDates(startDate, endDate) {
     const dates = [];
@@ -32,9 +30,18 @@ const HardModeBox = ({ hardBox }) => {
     }
     return dates;
   }
-  // 기간 출력
+  // 기간 출력 & 날짜 형식 변환
   let dates = getDates(startDate, endDate);
   dates = dates.map((x) => x.toISOString().substring(0, 10));
+
+  // 날짜 체크
+  let today = new Date().toISOString().substring(0, 10);
+
+  function checkDate(day, index) {
+    if (today === day) {
+      toggleStamp(index);
+    }
+  }
 
   return (
     <>
@@ -59,7 +66,9 @@ const HardModeBox = ({ hardBox }) => {
                       : styles.date
                   }
                   onClick={() => {
-                    toggleStamp(index);
+                    // toggleStamp(index);
+                    checkDate(day, index);
+                    console.log(day);
                   }}
                 >
                   {day}

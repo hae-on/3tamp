@@ -9,8 +9,8 @@ const HardMode = () => {
       id: "1",
       title: "html 공부하기",
       color: "red",
-      startDate: new Date(2021, 11, 27),
-      endDate: new Date(2021, 12, 16),
+      startDate: new Date(2021, 11, 15),
+      endDate: new Date(2021, 12, 4),
     },
     {
       id: "2",
