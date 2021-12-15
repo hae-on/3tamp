@@ -27,8 +27,6 @@ const HardMode = () => {
     // },
   ]);
 
-  // console.log(hardBoxes[0].startDate);
-
   const addHardBox = (hardBox) => {
     const updated = [...hardBoxes, hardBox];
     setHardBoxes(updated);

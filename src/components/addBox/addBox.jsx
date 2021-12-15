@@ -11,6 +11,8 @@ const AddBox = ({ modalClose, onAdd }) => {
   const formRef = useRef("");
   const titleRef = useRef();
 
+  const today = new Date();
+
   // 오늘 날짜 받아오기
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -19,6 +21,7 @@ const AddBox = ({ modalClose, onAdd }) => {
       title: titleRef.current.value || "",
       color: color || "red",
       startDate: new Date(),
+      endDate: new Date(today.setDate(today.getDate() + 21)),
     };
     formRef.current.reset();
     onAdd(hardBox);

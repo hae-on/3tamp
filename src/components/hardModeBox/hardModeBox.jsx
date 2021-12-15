@@ -14,6 +14,8 @@ const HardModeBox = ({ hardBox }) => {
     }));
   };
 
+  console.log(clicked);
+
   // 3주 기간 계산
   function getDates(startDate, endDate) {
     const dates = [];
