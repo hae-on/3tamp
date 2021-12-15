@@ -19,12 +19,13 @@ const HardMode = () => {
       startDate: new Date(2021, 11, 30),
       endDate: new Date(2021, 12, 19),
     },
-    // {
-    //   id: "3",
-    //   title: "책 읽기",
-    //   color: "orange",
-    //   startDate: "2021. 12. 18.",
-    // },
+    {
+      id: "3",
+      title: "책 읽기",
+      color: "orange",
+      startDate: new Date(2021, 12, 30),
+      endDate: new Date(2022, 1, 19),
+    },
   ]);
 
   const addHardBox = (hardBox) => {
