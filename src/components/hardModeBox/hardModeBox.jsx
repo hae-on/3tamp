@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./hardModeBox.module.css";
 import btn from "../../img/logo.png";
+import o from "../../img/hard_o.png";
+import x from "../../img/hard_x.png";
 
 const HardModeBox = ({ hardBox }) => {
   const { title, color, startDate, endDate } = hardBox;
   const [clicked, setClicked] = useState([]);
+  const [checkToday, setCheckToday] = useState(false);
 
   // 스탬프 toggle
-  const toggleStamp = (id) => {
+  function toggleStamp(id) {
     setClicked((stamp) => ({
       ...stamp,
       [id]: !stamp[id],
     }));
-  };
+  }
 
   // 3주 기간 계산
   function getDates(startDate, endDate) {
@@ -40,8 +43,16 @@ const HardModeBox = ({ hardBox }) => {
   function checkDate(day, index) {
     if (today === day) {
       toggleStamp(index);
+      setCheckToday(true);
+    } else {
+      console.log(today < day);
+      console.log(day < today);
     }
   }
+
+  // useEffect(()=> {
+  //   test
+  // },[])
 
   return (
     <>
@@ -60,17 +71,21 @@ const HardModeBox = ({ hardBox }) => {
               {dates.map((day, index) => (
                 <td
                   key={index}
-                  className={
-                    clicked[index]
-                      ? `${styles.date} ${styles.hard_o}`
-                      : styles.date
-                  }
+                  // className={
+                  //   clicked[index]
+                  //     ? `${styles.date} ${styles.hard_o}`
+                  //     : styles.date
+                  // }
+                  className={styles.date}
                   onClick={() => {
-                    // toggleStamp(index);
                     checkDate(day, index);
-                    console.log(day);
                   }}
                 >
+                  <img
+                    className={styles.t}
+                    src={clicked[index] ? o : x}
+                    alt="test"
+                  />
                   {day}
                 </td>
               ))}

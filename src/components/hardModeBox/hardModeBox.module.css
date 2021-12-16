@@ -113,5 +113,12 @@ td {
 }
 
 .hard_x {
-  background: none;
+  background-image: url("../../img/hard_x.png");
+  background-size: 4em 4em;
+  background-repeat: no-repeat;
+}
+
+.t {
+  width: 2em;
+  height: 2em;
 }
