@@ -7,7 +7,6 @@ import x from "../../img/hard_x.png";
 const HardModeBox = ({ hardBox }) => {
   const { title, color, startDate, endDate } = hardBox;
   const [clicked, setClicked] = useState([]);
-  const [checkToday, setCheckToday] = useState(false);
 
   // 스탬프 toggle
   function toggleStamp(id) {
@@ -16,6 +15,8 @@ const HardModeBox = ({ hardBox }) => {
       [id]: !stamp[id],
     }));
   }
+
+  // console.log(Object.values(clicked));
 
   // 3주 기간 계산
   function getDates(startDate, endDate) {
@@ -41,18 +42,15 @@ const HardModeBox = ({ hardBox }) => {
   let today = new Date().toISOString().substring(0, 10);
 
   function checkDate(day, index) {
+    // toggleStamp(index);
     if (today === day) {
       toggleStamp(index);
-      setCheckToday(true);
-    } else {
-      console.log(today < day);
-      console.log(day < today);
     }
   }
 
-  // useEffect(()=> {
-  //   test
-  // },[])
+  useEffect(() => {
+    console.log(Object(clicked));
+  }, [clicked]);
 
   return (
     <>
