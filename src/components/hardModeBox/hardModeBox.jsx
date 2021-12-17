@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./hardModeBox.module.css";
 import btn from "../../img/logo.png";
 import o from "../../img/hard_o.png";
 import x from "../../img/hard_x.png";
 
 const HardModeBox = ({ hardBox }) => {
+  const titleRef = useRef();
+
   const { title, color, startDate, endDate } = hardBox;
   const [clicked, setClicked] = useState([]);
 
@@ -15,8 +17,6 @@ const HardModeBox = ({ hardBox }) => {
       [id]: !stamp[id],
     }));
   }
-
-  // console.log(Object.values(clicked));
 
   // 3주 기간 계산
   function getDates(startDate, endDate) {
@@ -57,7 +57,13 @@ const HardModeBox = ({ hardBox }) => {
       <div className={`${styles.box} ${getStyles(color)}`}>
         <div className={styles.head}>
           <form>
-            <h1 className={styles.title}> {title} </h1>
+            {/* <h2 className={styles.title}> {title} </h2> */}
+            <input
+              className={styles.title}
+              type="text"
+              ref={titleRef}
+              value={title}
+            />
           </form>
           <button className={styles.btn}>
             <img src={btn} alt="btn" className={styles.btn_img} />

@@ -10,11 +10,12 @@
 }
 
 .title {
-  margin-top: 1.2em;
-  margin-left: 2.4em;
+  margin-top: 1em;
+  margin-left: 1.4em;
   background-color: transparent;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
   padding: 0.3em;
   width: 13em;
 }
