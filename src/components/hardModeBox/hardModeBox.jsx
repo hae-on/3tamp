@@ -4,7 +4,7 @@ import btn from "../../img/logo.png";
 import o from "../../img/hard_o.png";
 import x from "../../img/hard_x.png";
 
-const HardModeBox = ({ hardBox }) => {
+const HardModeBox = ({ hardBox, updateHardBox }) => {
   const titleRef = useRef();
 
   const { title, color, startDate, endDate } = hardBox;
@@ -52,17 +52,29 @@ const HardModeBox = ({ hardBox }) => {
     console.log(Object(clicked));
   }, [clicked]);
 
+  const onChange = (event) => {
+    if (event.currentTarget == null) {
+      return;
+    }
+    event.preventDefault();
+    updateHardBox({
+      ...hardBox,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+
   return (
     <>
       <div className={`${styles.box} ${getStyles(color)}`}>
         <div className={styles.head}>
           <form>
-            {/* <h2 className={styles.title}> {title} </h2> */}
             <input
               className={styles.title}
               type="text"
+              name="title"
               ref={titleRef}
               value={title}
+              onChange={onChange}
             />
           </form>
           <button className={styles.btn}>
