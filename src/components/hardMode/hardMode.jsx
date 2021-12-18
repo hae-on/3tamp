@@ -36,6 +36,14 @@ const HardMode = () => {
     });
   };
 
+  const deleteHardBox = (hardBox) => {
+    setHardBoxes((hardBoxes) => {
+      const updated = { ...hardBoxes };
+      delete updated[hardBox.id];
+      return updated;
+    });
+  };
+
   return (
     <section className={styles.hardMode}>
       <div className={styles.boxes}>
@@ -44,6 +52,7 @@ const HardMode = () => {
             key={key}
             hardBox={hardBoxes[key]}
             updateHardBox={creatOrUpdateHardBox}
+            deleteHardBox={deleteHardBox}
           />
         ))}
       </div>

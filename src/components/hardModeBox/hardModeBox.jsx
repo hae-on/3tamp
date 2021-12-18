@@ -5,7 +5,7 @@ import o from "../../img/hard_o.png";
 import x from "../../img/hard_x.png";
 import DeleteOrCompleteModal from "../deleteOrCompleteModal/deleteOrCompleteModal";
 
-const HardModeBox = ({ hardBox, updateHardBox }) => {
+const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   const { title, color, startDate, endDate } = hardBox;
 
   const [clicked, setClicked] = useState([]);
@@ -88,7 +88,13 @@ const HardModeBox = ({ hardBox, updateHardBox }) => {
           <button className={styles.btn} onClick={modalClose}>
             <img src={btn} alt="btn" className={styles.btn_img} />
           </button>
-          {modalOpen && <DeleteOrCompleteModal modalClose={modalClose} />}
+          {modalOpen && (
+            <DeleteOrCompleteModal
+              modalClose={modalClose}
+              deleteHardBox={deleteHardBox}
+              hardBox={hardBox}
+            />
+          )}
         </div>
         <table border="2" className={styles.table}>
           <thead>

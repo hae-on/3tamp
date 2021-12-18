@@ -3,7 +3,11 @@ import styles from "./deleteOrCompleteModal.module.css";
 import { FaTimes } from "react-icons/fa";
 import bear from "../../img/bear.png";
 
-const DeleteOrCompleteModal = ({ modalClose }) => {
+const DeleteOrCompleteModal = ({ modalClose, hardBox, deleteHardBox }) => {
+  const onSubmit = () => {
+    deleteHardBox(hardBox);
+  };
+
   return (
     <div className={styles.container} onClick={modalClose}>
       <div className={styles.modal}>
@@ -26,7 +30,9 @@ const DeleteOrCompleteModal = ({ modalClose }) => {
         </p>
         <div className={styles.btn_container}>
           <button className={styles.complete_btn}>완료</button>
-          <button className={styles.delete_btn}>삭제</button>
+          <button className={styles.delete_btn} onClick={onSubmit}>
+            삭제
+          </button>
         </div>
       </div>
     </div>
