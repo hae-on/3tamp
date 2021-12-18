@@ -1,4 +1,4 @@
-@value keyColor,colorDarkGrey,colorGrey from "../../common/color.css";
+@value keyColor, colorDarkGrey, colorSkyBlue, colorBlue, colorRed, colorGrey from "../../common/color.css";
 
 .container {
   width: 100%;
@@ -14,8 +14,8 @@
   position: absolute;
   right: -7%;
   top: 48%;
-  width: 300px;
-  height: 250px;
+  width: 450px;
+  height: 320px;
   background-color: white;
   border-radius: 6px;
   transform: translate(-50%, -50%);
@@ -39,4 +39,82 @@
   color: colorDarkGrey;
   width: 2em;
   height: 2em;
+}
+
+.bear_img {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8em;
+}
+
+.bear {
+  width: 13em;
+}
+
+.complete_title,
+.delete_title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.complete_word,
+.delete_word {
+  font-size: 1.6rem;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+.complete_title {
+  margin-left: 3.8em;
+  margin-top: 0.3em;
+}
+
+.delete_title {
+  margin-left: 7.8em;
+  margin-top: 0.5em;
+}
+
+.complete_word {
+  color: colorBlue;
+}
+
+.delete_word {
+  color: colorRed;
+}
+
+.warning {
+  color: red;
+  text-align: center;
+  margin-top: 2.5em;
+  font-weight: 600;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: center;
+}
+
+.complete_btn,
+.delete_btn {
+  cursor: pointer;
+  width: 7em;
+  height: 2.5em;
+  font-size: 1.2rem;
+  border-radius: 10px;
+}
+
+.complete_btn {
+  background-color: keyColor;
+  margin-right: 1em;
+}
+
+.complete_btn:hover {
+  background-color: colorSkyBlue;
+  transition: 200ms ease-in-out;
+}
+
+.delete_btn:hover {
+  background-color: colorGrey;
+  transition: 200ms ease-in-out;
 }
