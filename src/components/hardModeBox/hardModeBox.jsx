@@ -3,12 +3,15 @@ import styles from "./hardModeBox.module.css";
 import btn from "../../img/logo.png";
 import o from "../../img/hard_o.png";
 import x from "../../img/hard_x.png";
+import DeleteOrCompleteModal from "../deleteOrCompleteModal/deleteOrCompleteModal";
 
 const HardModeBox = ({ hardBox, updateHardBox }) => {
-  const titleRef = useRef();
-
   const { title, color, startDate, endDate } = hardBox;
+
   const [clicked, setClicked] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const titleRef = useRef();
 
   // 스탬프 toggle
   function toggleStamp(id) {
@@ -48,6 +51,11 @@ const HardModeBox = ({ hardBox, updateHardBox }) => {
     }
   }
 
+  // 삭제 및 완료 모달
+  const modalClose = () => {
+    setModalOpen(!modalOpen);
+  };
+
   useEffect(() => {
     console.log(Object(clicked));
   }, [clicked]);
@@ -77,9 +85,10 @@ const HardModeBox = ({ hardBox, updateHardBox }) => {
               onChange={onChange}
             />
           </form>
-          <button className={styles.btn}>
+          <button className={styles.btn} onClick={modalClose}>
             <img src={btn} alt="btn" className={styles.btn_img} />
           </button>
+          {modalOpen && <DeleteOrCompleteModal modalClose={modalClose} />}
         </div>
         <table border="2" className={styles.table}>
           <thead>
