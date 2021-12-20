@@ -12,7 +12,7 @@
 
 .modal {
   position: absolute;
-  right: -7%;
+  left: 50%;
   top: 48%;
   width: 450px;
   height: 320px;
