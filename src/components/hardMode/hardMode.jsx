@@ -1,32 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./hardMode.module.css";
 import AddButton from "../addButton/addButton";
 import HardModeBox from "../hardModeBox/hardModeBox";
+import { useLocation } from "react-router-dom";
 
-const HardMode = () => {
-  const [hardBoxes, setHardBoxes] = useState({
-    1: {
-      id: "1",
-      title: "html 공부하기",
-      color: "red",
-      startDate: new Date(2021, 11, 15),
-      endDate: new Date(2021, 12, 4),
-    },
-    2: {
-      id: "2",
-      title: "영어 단어 외우기",
-      color: "purple",
-      startDate: new Date(2021, 11, 30),
-      endDate: new Date(2021, 12, 19),
-    },
-    3: {
-      id: "3",
-      title: "책 읽기",
-      color: "orange",
-      startDate: new Date(2021, 12, 30),
-      endDate: new Date(2022, 1, 19),
-    },
-  });
+const HardMode = ({ boxRepository, authService }) => {
+  const location = useLocation();
+  const locationState = location?.state;
+  const [hardBoxes, setHardBoxes] = useState({});
+  const [userId, setUserId] = useState(locationState && locationState.id);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = boxRepository.syncHardBoxes(userId, (hardBoxes) => {
+      setHardBoxes(hardBoxes);
+    });
+    return () => stopSync();
+  }, [userId, boxRepository]);
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      if (user) {
+        setUserId(user.uid);
+      }
+    });
+  }, [authService, userId]);
 
   const creatOrUpdateHardBox = (hardBox) => {
     setHardBoxes((hardBoxes) => {
@@ -34,6 +34,7 @@ const HardMode = () => {
       updated[hardBox.id] = hardBox;
       return updated;
     });
+    boxRepository.saveHardBox(userId, hardBox);
   };
 
   const deleteHardBox = (hardBox) => {
@@ -42,6 +43,7 @@ const HardMode = () => {
       delete updated[hardBox.id];
       return updated;
     });
+    boxRepository.removeHardBox(userId, hardBox);
   };
 
   return (

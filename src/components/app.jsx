@@ -10,7 +10,7 @@ import Collection from "./collection/collection";
 import Nav from "./nav/nav";
 import "./app.module.css";
 
-function App({ authService }) {
+function App({ authService, boxRepository }) {
   let location = useLocation();
 
   return (
@@ -22,7 +22,12 @@ function App({ authService }) {
         <Route exact path="/" element={<Main />} />
         <Route path="/login" element={<Login authService={authService} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/hardMode" element={<HardMode />} />
+        <Route
+          path="/hardMode"
+          element={
+            <HardMode authService={authService} boxRepository={boxRepository} />
+          }
+        />
         <Route path="/softMode" element={<SoftMode />} />
         <Route path="/collection" element={<Collection />} />
       </Routes>
