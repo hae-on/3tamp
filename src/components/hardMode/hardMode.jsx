@@ -10,16 +10,18 @@ const HardMode = ({ boxRepository, authService }) => {
   const [hardBoxes, setHardBoxes] = useState({});
   const [userId, setUserId] = useState(locationState && locationState.id);
 
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    const stopSync = boxRepository.syncHardBoxes(userId, (hardBoxes) => {
-      setHardBoxes(hardBoxes);
-    });
-    return () => stopSync();
-  }, [userId, boxRepository]);
+  // 컴포넌트 언마운트 시 불필요한 네트워크 사용 최소화
+  // useEffect(() => {
+  //   if (!userId) {
+  //     return;
+  //   }
+  //   const stopSync = boxRepository.syncHardBoxes(userId, (hardBoxes) => {
+  //     setHardBoxes(hardBoxes);
+  //   });
+  //   return () => stopSync();
+  // }, [userId, boxRepository]);
 
+  // 유저 변경이 있을 때마다 유저 아이디 전달
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (user) {

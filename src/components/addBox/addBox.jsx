@@ -12,6 +12,8 @@ const AddBox = ({ modalClose, onAdd }) => {
   const titleRef = useRef();
 
   const today = new Date();
+  console.log(today);
+  console.log(Date());
 
   // 오늘 날짜 받아오기
   const onSubmit = async (event) => {

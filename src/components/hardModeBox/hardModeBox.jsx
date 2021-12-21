@@ -41,6 +41,8 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   let dates = getDates(startDate, endDate);
   dates = dates.map((x) => x.toISOString().substring(0, 10));
 
+  console.log(dates);
+
   // 날짜 체크
   let today = new Date().toISOString().substring(0, 10);
 
