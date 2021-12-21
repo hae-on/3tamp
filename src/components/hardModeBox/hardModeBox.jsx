@@ -4,9 +4,10 @@ import btn from "../../img/logo.png";
 import o from "../../img/hard_o.png";
 import x from "../../img/hard_x.png";
 import DeleteOrCompleteModal from "../deleteOrCompleteModal/deleteOrCompleteModal";
+import moment from "moment";
 
 const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
-  const { title, color, startDate, endDate } = hardBox;
+  const { title, color, startDate } = hardBox;
 
   const [clicked, setClicked] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,29 +23,23 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   }
 
   // 3주 기간 계산
-  function getDates(startDate, endDate) {
-    const dates = [];
-    let currentDate = startDate;
-    const addDays = function (days) {
-      // 데이터 원시 값 반환
-      const date = new Date(this.valueOf());
-      date.setDate(date.getDate() + days);
-      return date;
-    };
-    while (currentDate <= endDate) {
-      dates.push(currentDate);
-      currentDate = addDays.call(currentDate, 1);
+  const endDate = moment().add(20, "days");
+
+  const getDaysBetweenDates = function (startDate, endDate) {
+    const startAt = moment(startDate);
+    const endAt = moment(endDate);
+    const now = startAt.clone(),
+      dates = [];
+    while (now.isSameOrBefore(endAt)) {
+      dates.push(now.format("YYYY-MM-DD"));
+      now.add(1, "days");
     }
     return dates;
-  }
-  // 기간 출력 & 날짜 형식 변환
-  let dates = getDates(startDate, endDate);
-  dates = dates.map((x) => x.toISOString().substring(0, 10));
+  };
 
-  console.log(dates);
+  const dates = getDaysBetweenDates(startDate, endDate);
 
-  // 날짜 체크
-  let today = new Date().toISOString().substring(0, 10);
+  const today = new Date();
 
   function checkDate(day, index) {
     // toggleStamp(index);
