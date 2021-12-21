@@ -27,10 +27,10 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
 
   const getDaysBetweenDates = function (startDate, endDate) {
     const startAt = moment(startDate);
-    const endAt = moment(endDate);
+    // const endAt = moment(endDate);
     const now = startAt.clone(),
       dates = [];
-    while (now.isSameOrBefore(endAt)) {
+    while (now.isSameOrBefore(endDate)) {
       dates.push(now.format("YYYY-MM-DD"));
       now.add(1, "days");
     }
@@ -39,10 +39,11 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
 
   const dates = getDaysBetweenDates(startDate, endDate);
 
-  const today = new Date();
+  // day와 형태를 맞추기 위해  format 변경
+  const today = moment(startDate).format("YYYY-MM-DD");
 
+  // 오늘 날짜와 mapping된 날짜가 맞으면 도장
   function checkDate(day, index) {
-    // toggleStamp(index);
     if (today === day) {
       toggleStamp(index);
     }
