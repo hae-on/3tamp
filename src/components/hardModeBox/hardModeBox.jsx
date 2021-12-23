@@ -40,7 +40,7 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   const dates = getDaysBetweenDates(startDate, endDate);
 
   // day와 형태를 맞추기 위해  format 변경
-  const today = moment(startDate).format("YYYY-MM-DD");
+  const today = moment().format("YYYY-MM-DD");
 
   // 오늘 날짜와 mapping된 날짜가 맞으면 도장
   function checkDate(day, index) {
