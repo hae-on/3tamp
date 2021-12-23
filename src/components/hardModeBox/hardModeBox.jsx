@@ -111,7 +111,7 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
                   }}
                 >
                   <img
-                    className={styles.t}
+                    className={styles.td_box}
                     src={clicked[index] ? o : x}
                     alt="test"
                   />
