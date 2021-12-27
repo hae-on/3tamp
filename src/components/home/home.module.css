@@ -1,0 +1,60 @@
+.bg {
+  width: 100%;
+  height: 1700px;
+  position: relative;
+}
+
+.bear {
+  display: block;
+  width: 800px;
+  height: 700px;
+  margin-left: auto;
+  z-index: 1;
+}
+
+.hai {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 1000px;
+}
+
+.title {
+  position: absolute;
+  top: 4.5em;
+  left: 6em;
+  font-size: 3rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.content1,
+.content2,
+.content3,
+.content4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.content1 {
+  top: 13em;
+  left: 15em;
+}
+
+.content2 {
+  top: 16em;
+  left: 18em;
+}
+
+.content3 {
+  top: 19em;
+  left: 20em;
+}
+
+.content4 {
+  top: 17em;
+  left: 10em;
+  font-size: 2rem;
+}
