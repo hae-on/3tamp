@@ -23,7 +23,7 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   }
 
   // 3주 기간 계산
-  const endDate = moment().add(20, "days");
+  const endDate = moment(startDate).add(20, "days");
 
   const getDaysBetweenDates = function (startDate, endDate) {
     const startAt = moment(startDate);
