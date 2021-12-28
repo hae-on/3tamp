@@ -9,25 +9,15 @@ import moment from "moment";
 const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   const { title, color, startDate } = hardBox;
 
-  const [clicked, setClicked] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   const titleRef = useRef();
-
-  // 스탬프 toggle
-  function toggleStamp(id) {
-    setClicked((stamp) => ({
-      ...stamp,
-      [id]: !stamp[id],
-    }));
-  }
 
   // 3주 기간 계산
   const endDate = moment(startDate).add(20, "days");
 
   const getDaysBetweenDates = function (startDate, endDate) {
     const startAt = moment(startDate);
-    // const endAt = moment(endDate);
     const now = startAt.clone(),
       dates = [];
     while (now.isSameOrBefore(endDate)) {
@@ -43,20 +33,16 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   const today = moment().format("YYYY-MM-DD");
 
   // 오늘 날짜와 mapping된 날짜가 맞으면 도장
-  function checkDate(day, index) {
-    if (today === day) {
-      toggleStamp(index);
-    }
-  }
+  // function checkDate(day, index) {
+  //   if (today !== day) {
+  //     toggleStamp(index);
+  //   }
+  // }
 
   // 삭제 및 완료 모달
   const modalClose = () => {
     setModalOpen(!modalOpen);
   };
-
-  useEffect(() => {
-    console.log(Object(clicked));
-  }, [clicked]);
 
   const onChange = (event) => {
     if (event.currentTarget == null) {
@@ -67,7 +53,51 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
       ...hardBox,
       [event.currentTarget.name]: event.currentTarget.value,
     });
+    console.log(event.currentTarget.value);
   };
+
+  // const newArr = Array(dates.length).fill(false);
+
+  // const [isBoxSelect, setBoxSelect] = useState(newArr);
+
+  // const handleIDX = (index) => {
+  //   newArr[index] = true;
+  //   setBoxSelect(newArr);
+  //   // 파이어베이스의 isBoxSelect[index] 값이 true라면 ...
+  // };
+
+  // console.log(isBoxSelect);
+
+  // function toggleStamp(id) {
+  //   setClicked((stamp) => ({
+  //     ...stamp,
+  //     [id]: !stamp[id],
+  //   }));
+  //   console.log(id);
+  // }
+
+  // useEffect(() => {
+  //   updateHardBox({
+  //     ...hardBox,
+  //     isBoxSelect,
+  //   });
+  // }, [isBoxSelect]);
+
+  let hardCliked = hardBox.isClicked;
+  const [isClicked, setClicked] = useState(hardCliked);
+
+  function toggleStamp() {
+    setClicked(!isClicked);
+  }
+
+  useEffect(() => {
+    updateHardBox({
+      ...hardBox,
+      isClicked,
+    });
+  }, [isClicked]);
+
+  console.log(hardCliked);
 
   return (
     <>
@@ -94,30 +124,41 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
             />
           )}
         </div>
+
         <table border="2" className={styles.table}>
           <thead>
             <tr className={styles.dates}>
-              {dates.map((day, index) => (
+              <td
+                className={`${styles.date} ${test(isClicked)}`}
+                onClick={() => {
+                  toggleStamp();
+                }}
+
+                // onClick={ setClicked(!isClicked)}
+              ></td>
+              {/* {dates.map((day, index) => (
                 <td
                   key={index}
-                  // className={
-                  //   clicked[index]
-                  //     ? `${styles.date} ${styles.hard_o}`
-                  //     : styles.date
+                  //className={
+                  // isBoxSelect[index]
+                  //   ? `${styles.date} ${styles.hard_o}`
+                  //   : `${styles.date} ${styles.hard_x}`
                   // }
                   className={styles.date}
                   onClick={() => {
-                    checkDate(day, index);
+                    // checkDate(day, index);
+                    // handleIDX(index);
                   }}
                 >
-                  <img
+                  {/* <img
                     className={styles.td_box}
-                    src={clicked[index] ? o : x}
+                    src={isBoxSelect[index] ? o : x}
                     alt="test"
-                  />
+                  /> 
                   {day}
                 </td>
               ))}
+                  */}
             </tr>
           </thead>
         </table>
@@ -144,6 +185,17 @@ function getStyles(color) {
       return styles.pink;
     default:
       throw new Error(`unknown color: ${color}`);
+  }
+}
+
+function test(hardCliked) {
+  switch (hardCliked) {
+    case true:
+      return styles.hard_o;
+    case false:
+      return styles.hard_x;
+    default:
+      throw new Error(`unknown isClicked: ${hardCliked}`);
   }
 }
 

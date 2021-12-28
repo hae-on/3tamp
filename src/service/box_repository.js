@@ -11,6 +11,7 @@ class BoxRepository {
       const value = snapshot.val();
       value && onUpdate(value);
       onUpdate(value);
+      console.log(value);
     });
     return () => off(query);
   }

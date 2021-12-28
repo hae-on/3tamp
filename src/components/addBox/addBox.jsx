@@ -21,6 +21,7 @@ const AddBox = ({ modalClose, onAdd }) => {
       title: titleRef.current.value || "",
       color: color || "red",
       startDate: today,
+      isClicked: false,
     };
     formRef.current.reset();
     onAdd(hardBox);
