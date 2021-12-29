@@ -1,12 +1,11 @@
 .bg {
   width: 100%;
-  height: 1700px;
   position: relative;
 }
 
 .intro {
   width: 100%;
-  height: 800px;
+  height: 700px;
 }
 
 .bear {
@@ -68,6 +67,7 @@
 .hard_mode {
   width: 100%;
   height: 870px;
+  background-color: #e2eaff;
 }
 
 .content_title {
@@ -75,6 +75,7 @@
   font-weight: 700;
   margin-left: 2em;
   padding-top: 1em;
+  margin-top: 0;
 }
 
 .hard_imgs {

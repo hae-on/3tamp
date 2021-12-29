@@ -5,6 +5,8 @@ import hai from "../../img/hai.png";
 import add from "../../img/add.png";
 import newStamp from "../../img/newStamp.png";
 import stamp from "../../img/stamp.png";
+import newSoft from "../../img/newSoft.png";
+import softStamp from "../../img/softStamp.png";
 
 const Home = ({ authService }) => {
   return (
@@ -53,12 +55,28 @@ const Home = ({ authService }) => {
           </div>
         </div>
         <div className={styles.soft_mode}>
-          <p className={styles.content_title}>Soft Mode 사용법</p>
-          <div className={styles.input}>
-            <img src={add} alt="add" className={styles.add_form} />
-            <span className={styles.input_intro}>
-              먼저 새로운 습관의 이름과 색상을 입력해주세요
-            </span>
+          <p className={styles.content_title}>Hard Mode 사용법</p>
+          <div className={styles.hard_imgs}>
+            <div className={styles.input}>
+              <img src={add} alt="add" className={styles.add_form} />
+              <span className={styles.input_intro}>
+                먼저 새로운 습관의 이름과 색상을 입력해주세요
+              </span>
+            </div>
+            <div className={styles.new}>
+              <img src={newSoft} alt="newSoft" className={styles.new_stamp} />
+              <span className={styles.new_intro}>
+                새로운 습관이 생성됐어요! <br />
+                자유롭게 찍어 날짜를 기록해요
+              </span>
+            </div>
+            <div className={styles.stamp_box}>
+              <img src={softStamp} alt="softStamp" className={styles.stamp} />
+              <span className={styles.stamp_intro}>
+                아무 공간이나 찍어보세요 <br />
+                부정기적으로 해야하는 기록에 사용해보세요
+              </span>
+            </div>
           </div>
         </div>
       </section>
