@@ -25,7 +25,7 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
     const now = startAt.clone(),
       dates = [];
     while (now.isSameOrBefore(endDate)) {
-      dates.push(now.format("YYYY-MM-DD"));
+      dates.push(now.format("MM-DD"));
       now.add(1, "days");
     }
     return dates;
@@ -34,14 +34,14 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   const dates = getDaysBetweenDates(startDate, endDate);
 
   // day와 형태를 맞추기 위해  format 변경
-  const today = moment().format("YYYY-MM-DD");
+  const today = moment().format("MM-DD");
 
   // 오늘 날짜와 mapping된 날짜가 맞으면 도장
-  // function checkDate(day, index) {
-  //   if (today !== day) {
-  //     toggleStamp(index);
-  //   }
-  // }
+  function checkDate(day, index) {
+    if (today === day) {
+      toggleStamp(index);
+    }
+  }
 
   // 삭제 및 완료 모달
   const modalClose = () => {
@@ -109,7 +109,8 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
                   key={index}
                   className={styles.date}
                   onClick={() => {
-                    toggleStamp(index);
+                    checkDate(day, index);
+                    // toggleStamp(index);
                   }}
                 >
                   <img
@@ -117,6 +118,7 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
                     src={hardCliked[index] ? o : x}
                     alt="stamp"
                   />
+                  {day}
                 </td>
               ))}
             </tr>

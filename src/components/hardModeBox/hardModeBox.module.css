@@ -107,19 +107,7 @@ td {
   background-color: #ffd1e9;
 }
 
-.hard_o {
-  background-image: url("../../img/hard_o.png");
-  background-size: 4em 4em;
-  background-repeat: no-repeat;
-}
-
-.hard_x {
-  background-image: url("../../img/hard_x.png");
-  background-size: 4em 4em;
-  background-repeat: no-repeat;
-}
-
 .td_box {
-  width: 2em;
-  height: 2em;
+  width: 2.8em;
+  height: 2.8em;
 }
