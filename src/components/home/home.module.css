@@ -18,18 +18,22 @@
 
 .hai {
   position: absolute;
-  top: 50px;
-  left: 100px;
-  width: 1000px;
+  top: -10px;
+  left: 10px;
+  width: 1150px;
 }
 
 .title {
   position: absolute;
-  top: 4.5em;
+  top: 3.5em;
   left: 6em;
   font-size: 3rem;
   font-weight: 800;
   white-space: nowrap;
+}
+
+.big_title {
+  font-size: 5rem;
 }
 
 .content1,
@@ -61,6 +65,7 @@
   top: 17em;
   left: 10em;
   font-size: 2rem;
+  font-weight: 600;
 }
 
 /* hard_mode */

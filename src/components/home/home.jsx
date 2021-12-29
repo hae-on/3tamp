@@ -15,7 +15,10 @@ const Home = ({ authService }) => {
         <div className={styles.intro}>
           <img src={bear} alt="bear" className={styles.bear} />
           <img src={hai} alt="hai" className={styles.hai} />
-          <span className={styles.title}>3tamp에 오신 것을 환영해요!</span>
+          <span className={styles.title}>
+            <span className={styles.big_title}>3</span>
+            tamp에 오신 것을 환영해요!
+          </span>
           <span className={styles.content1}>
             자신만의 습관을 만들고 싶나요?
           </span>
@@ -55,7 +58,7 @@ const Home = ({ authService }) => {
           </div>
         </div>
         <div className={styles.soft_mode}>
-          <p className={styles.content_title}>Hard Mode 사용법</p>
+          <p className={styles.content_title}>Soft Mode 사용법</p>
           <div className={styles.hard_imgs}>
             <div className={styles.input}>
               <img src={add} alt="add" className={styles.add_form} />
@@ -67,14 +70,14 @@ const Home = ({ authService }) => {
               <img src={newSoft} alt="newSoft" className={styles.new_stamp} />
               <span className={styles.new_intro}>
                 새로운 습관이 생성됐어요! <br />
-                자유롭게 찍어 날짜를 기록해요
+                자유롭게 도장을 찍어 날짜를 기록해요
               </span>
             </div>
             <div className={styles.stamp_box}>
               <img src={softStamp} alt="softStamp" className={styles.stamp} />
               <span className={styles.stamp_intro}>
                 아무 공간이나 찍어보세요 <br />
-                부정기적으로 해야하는 기록에 사용해보세요
+                부정기적으로 해야하는 기록에 좋아요
               </span>
             </div>
           </div>
