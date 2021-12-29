@@ -28,7 +28,7 @@ const Home = ({ authService }) => {
           </span>
         </div>
         <div className={styles.hard_mode}>
-          <p className={styles.hard_title}>Hard Mode 사용법</p>
+          <p className={styles.content_title}>Hard Mode 사용법</p>
           <div className={styles.hard_imgs}>
             <div className={styles.input}>
               <img src={add} alt="add" className={styles.add_form} />
@@ -52,7 +52,15 @@ const Home = ({ authService }) => {
             </div>
           </div>
         </div>
-        !
+        <div className={styles.soft_mode}>
+          <p className={styles.content_title}>Soft Mode 사용법</p>
+          <div className={styles.input}>
+            <img src={add} alt="add" className={styles.add_form} />
+            <span className={styles.input_intro}>
+              먼저 새로운 습관의 이름과 색상을 입력해주세요
+            </span>
+          </div>
+        </div>
       </section>
     </>
   );

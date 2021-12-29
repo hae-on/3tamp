@@ -6,7 +6,7 @@
 
 .intro {
   width: 100%;
-  height: 820px;
+  height: 800px;
 }
 
 .bear {
@@ -70,7 +70,7 @@
   height: 870px;
 }
 
-.hard_title {
+.content_title {
   font-size: 3rem;
   font-weight: 700;
   margin-left: 2em;
@@ -134,4 +134,11 @@
   font-weight: 500;
   margin-top: 0.5em;
   margin-left: 1em;
+}
+
+/* soft_mode */
+.soft_mode {
+  width: 100%;
+  height: 870px;
+  background-color: cornsilk;
 }
