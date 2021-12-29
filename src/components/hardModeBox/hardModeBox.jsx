@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./hardModeBox.module.css";
 import btn from "../../img/logo.png";
-import o from "../../img/hard_o.png";
-import x from "../../img/hard_x.png";
 import DeleteOrCompleteModal from "../deleteOrCompleteModal/deleteOrCompleteModal";
 import moment from "moment";
+import o from "../../img/hard_o.png";
+import x from "../../img/hard_x.png";
 
 const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   const { title, color, startDate } = hardBox;
 
+  const hardCliked = hardBox.isClicked;
+
   const [modalOpen, setModalOpen] = useState(false);
+  const [isIndex, setIndex] = useState("");
+  const [isClicked, setClicked] = useState(hardCliked);
 
   const titleRef = useRef();
 
@@ -56,38 +60,13 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
     console.log(event.currentTarget.value);
   };
 
-  // const newArr = Array(dates.length).fill(false);
-
-  // const [isBoxSelect, setBoxSelect] = useState(newArr);
-
-  // const handleIDX = (index) => {
-  //   newArr[index] = true;
-  //   setBoxSelect(newArr);
-  //   // 파이어베이스의 isBoxSelect[index] 값이 true라면 ...
-  // };
-
-  // console.log(isBoxSelect);
-
-  // function toggleStamp(id) {
-  //   setClicked((stamp) => ({
-  //     ...stamp,
-  //     [id]: !stamp[id],
-  //   }));
-  //   console.log(id);
-  // }
-
-  // useEffect(() => {
-  //   updateHardBox({
-  //     ...hardBox,
-  //     isBoxSelect,
-  //   });
-  // }, [isBoxSelect]);
-
-  let hardCliked = hardBox.isClicked;
-  const [isClicked, setClicked] = useState(hardCliked);
-
-  function toggleStamp() {
-    setClicked(!isClicked);
+  // 도장찍기
+  function toggleStamp(index) {
+    setClicked((stamp) => ({
+      ...stamp,
+      [index]: !stamp[index],
+    }));
+    setIndex(index);
   }
 
   useEffect(() => {
@@ -96,8 +75,6 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
       isClicked,
     });
   }, [isClicked]);
-
-  console.log(hardCliked);
 
   return (
     <>
@@ -124,41 +101,24 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
             />
           )}
         </div>
-
         <table border="2" className={styles.table}>
           <thead>
             <tr className={styles.dates}>
-              <td
-                className={`${styles.date} ${test(isClicked)}`}
-                onClick={() => {
-                  toggleStamp();
-                }}
-
-                // onClick={ setClicked(!isClicked)}
-              ></td>
-              {/* {dates.map((day, index) => (
+              {dates.map((day, index) => (
                 <td
                   key={index}
-                  //className={
-                  // isBoxSelect[index]
-                  //   ? `${styles.date} ${styles.hard_o}`
-                  //   : `${styles.date} ${styles.hard_x}`
-                  // }
                   className={styles.date}
                   onClick={() => {
-                    // checkDate(day, index);
-                    // handleIDX(index);
+                    toggleStamp(index);
                   }}
                 >
-                  {/* <img
+                  <img
                     className={styles.td_box}
-                    src={isBoxSelect[index] ? o : x}
-                    alt="test"
-                  /> 
-                  {day}
+                    src={hardCliked[index] ? o : x}
+                    alt="stamp"
+                  />
                 </td>
               ))}
-                  */}
             </tr>
           </thead>
         </table>
@@ -185,17 +145,6 @@ function getStyles(color) {
       return styles.pink;
     default:
       throw new Error(`unknown color: ${color}`);
-  }
-}
-
-function test(hardCliked) {
-  switch (hardCliked) {
-    case true:
-      return styles.hard_o;
-    case false:
-      return styles.hard_x;
-    default:
-      throw new Error(`unknown isClicked: ${hardCliked}`);
   }
 }
 
