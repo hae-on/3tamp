@@ -100,7 +100,7 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
         <table border="2" className={styles.table}>
           <thead>
             <tr className={styles.dates}>
-              {dates.map((day, index) => (
+              {dates.map((index) => (
                 <td
                   key={index}
                   className={styles.date}

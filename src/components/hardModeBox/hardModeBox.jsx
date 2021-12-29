@@ -110,7 +110,6 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
                   className={styles.date}
                   onClick={() => {
                     checkDate(day, index);
-                    // toggleStamp(index);
                   }}
                 >
                   <img

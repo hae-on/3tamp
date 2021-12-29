@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 import { AiFillCheckCircle } from "react-icons/ai";
 import ColorBox from "../colorBox/colorBox";
 
-const AddBox = ({ modalClose, onAdd, onA }) => {
+const AddBox = ({ modalClose, onAdd }) => {
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
 
