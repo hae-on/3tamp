@@ -10,10 +10,12 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
   const { title, color, startDate } = softBox;
 
   const softCliked = softBox.isClicked;
+  const clickDate = softBox.isDate;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [isIndex, setIndex] = useState("");
   const [isClicked, setClicked] = useState(softCliked);
+  const [isDate, setDate] = useState(clickDate);
 
   const titleRef = useRef();
 
@@ -50,7 +52,6 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
       ...softBox,
       [event.currentTarget.name]: event.currentTarget.value,
     });
-    console.log(event.currentTarget.value);
   };
 
   // 도장찍기
@@ -60,12 +61,14 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
       [index]: !stamp[index],
     }));
     setIndex(index);
+    setDate(today);
   }
 
   useEffect(() => {
     updatesoftBox({
       ...softBox,
       isClicked,
+      isDate,
     });
   }, [isClicked]);
 
@@ -110,7 +113,7 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
                     src={softCliked[index] ? o : x}
                     alt="stamp"
                   />
-                  {day}
+                  {softCliked[index] ? isDate : null}
                 </td>
               ))}
             </tr>
