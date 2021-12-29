@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./softMode.module.css";
+import styles from "../hardMode/mode.module.css";
 import AddButton from "../addButton/addButton";
 import SoftModeBox from "../softModeBox/softModeBox";
 import { useLocation } from "react-router-dom";

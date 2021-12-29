@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./hardModeBox.module.css";
+import styles from "./modeBox.module.css";
 import btn from "../../img/logo.png";
 import DeleteOrCompleteModal from "../deleteOrCompleteModal/deleteOrCompleteModal";
 import moment from "moment";
