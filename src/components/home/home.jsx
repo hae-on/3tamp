@@ -3,6 +3,8 @@ import styles from "./home.module.css";
 import bear from "../../img/homeBear.png";
 import hai from "../../img/hai.png";
 import add from "../../img/add.png";
+import newStamp from "../../img/newStamp.png";
+import stamp from "../../img/stamp.png";
 
 const Home = ({ authService }) => {
   return (
@@ -27,8 +29,30 @@ const Home = ({ authService }) => {
         </div>
         <div className={styles.hard_mode}>
           <p className={styles.hard_title}>Hard Mode 사용법</p>
-          <img src={add} alt="add" className={styles.add_form} />
+          <div className={styles.hard_imgs}>
+            <div className={styles.input}>
+              <img src={add} alt="add" className={styles.add_form} />
+              <span className={styles.input_intro}>
+                먼저 새로운 습관의 이름과 색상을 입력해주세요
+              </span>
+            </div>
+            <div className={styles.new}>
+              <img src={newStamp} alt="newStamp" className={styles.new_stamp} />
+              <span className={styles.new_intro}>
+                새로운 습관이 생성됐어요! <br />
+                생성한 날짜로부터 21일간 달려봐요
+              </span>
+            </div>
+            <div className={styles.stamp_box}>
+              <img src={stamp} alt="stamp" className={styles.stamp} />
+              <span className={styles.stamp_intro}>
+                당일만 도장을 찍을 수 있어요 <br />
+                까먹지 말고 찍도록 해요
+              </span>
+            </div>
+          </div>
         </div>
+        !
       </section>
     </>
   );
