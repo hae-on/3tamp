@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 import { AiFillCheckCircle } from "react-icons/ai";
 import ColorBox from "../colorBox/colorBox";
 
-const AddBox = ({ modalClose, onAdd }) => {
+const AddBox = ({ modalClose, onAdd, onA }) => {
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
 
@@ -16,12 +16,11 @@ const AddBox = ({ modalClose, onAdd }) => {
   // 오늘 날짜 받아오기
   const onSubmit = async (event) => {
     event.preventDefault();
-    const hardBox = {
+    const box = {
       id: Date.now(),
       title: titleRef.current.value || "",
       color: color || "red",
       startDate: today,
-      // isClicked: false,
       isClicked: {
         0: false,
         1: false,
@@ -47,7 +46,7 @@ const AddBox = ({ modalClose, onAdd }) => {
       },
     };
     formRef.current.reset();
-    onAdd(hardBox);
+    onAdd(box);
   };
 
   const onChange = (event) => {

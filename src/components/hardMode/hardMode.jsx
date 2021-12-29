@@ -64,7 +64,7 @@ const HardMode = ({ boxRepository, authService }) => {
         <AddButton
           key={hardBoxes.id}
           hardBoxes={hardBoxes}
-          addHardBox={creatOrUpdateHardBox}
+          addBox={creatOrUpdateHardBox}
         />
       </div>
     </section>

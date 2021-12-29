@@ -28,7 +28,12 @@ function App({ authService, boxRepository }) {
             <HardMode authService={authService} boxRepository={boxRepository} />
           }
         />
-        <Route path="/softMode" element={<SoftMode />} />
+        <Route
+          path="/softMode"
+          element={
+            <SoftMode authService={authService} boxRepository={boxRepository} />
+          }
+        />
         <Route path="/collection" element={<Collection />} />
       </Routes>
     </>
