@@ -23,7 +23,7 @@ JS (React 사용) / postCSS / firebase
 
 - home 화면 (첫 화면 - 웹 페이지 사용 방법을 설명합니다. )
 
-![스크린샷 2021-12-29 오후 9 55 10](https://user-images.githubusercontent.com/80464961/147664794-2876ac0f-91df-4be6-a905-4ad93662844f.png)
+![스크린샷 2021-12-30 오후 5 04 58](https://user-images.githubusercontent.com/80464961/147733049-0989a174-d7de-471c-91c5-16121a11feb9.png)
 
 - hard mode (도장을 3주간 정기적으로 찍습니다.)
 
