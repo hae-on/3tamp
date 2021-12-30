@@ -13,7 +13,6 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
   const clickDate = softBox.isDate;
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [isIndex, setIndex] = useState("");
   const [isClicked, setClicked] = useState(softCliked);
   const [isDate, setDate] = useState(clickDate);
 
@@ -60,7 +59,6 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
       ...stamp,
       [index]: !stamp[index],
     }));
-    setIndex(index);
     setDate(today);
   }
 
