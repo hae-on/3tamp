@@ -6,7 +6,6 @@ import Home from "./home/home";
 import Login from "./login/login";
 import HardMode from "./hardMode/hardMode";
 import SoftMode from "./softMode/softMode";
-import Collection from "./collection/collection";
 import Nav from "./nav/nav";
 import "./app.module.css";
 
@@ -34,7 +33,6 @@ function App({ authService, boxRepository }) {
             <SoftMode authService={authService} boxRepository={boxRepository} />
           }
         />
-        <Route path="/collection" element={<Collection />} />
       </Routes>
     </>
   );

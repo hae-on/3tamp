@@ -15,7 +15,7 @@
   left: 50%;
   top: 48%;
   width: 450px;
-  height: 320px;
+  height: 280px;
   background-color: white;
   border-radius: 6px;
   transform: translate(-50%, -50%);
@@ -51,32 +51,21 @@
   width: 13em;
 }
 
-.complete_title,
 .delete_title {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0;
 }
 
-.complete_word,
 .delete_word {
   font-size: 1.6rem;
   margin-left: 0.2em;
   margin-right: 0.2em;
 }
 
-.complete_title {
-  margin-left: 3.8em;
-  margin-top: 1em;
-}
-
 .delete_title {
-  margin-left: 7.8em;
   margin-top: 0.5em;
-}
-
-.complete_word {
-  color: colorBlue;
+  text-align: center;
 }
 
 .delete_word {
@@ -86,7 +75,7 @@
 .warning {
   color: red;
   text-align: center;
-  margin-top: 1.5em;
+  margin-top: 2.5em;
   font-weight: 600;
 }
 
@@ -95,23 +84,12 @@
   justify-content: center;
 }
 
-.complete_btn,
 .delete_btn {
   cursor: pointer;
   width: 7em;
   height: 2.5em;
   font-size: 1.2rem;
   border-radius: 10px;
-}
-
-.complete_btn {
-  background-color: keyColor;
-  margin-right: 1em;
-}
-
-.complete_btn:hover {
-  background-color: colorSkyBlue;
-  transition: 200ms ease-in-out;
 }
 
 .delete_btn:hover {

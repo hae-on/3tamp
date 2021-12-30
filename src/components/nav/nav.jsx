@@ -56,15 +56,6 @@ const Nav = ({ authService }) => {
             soft mode
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/collection"
-            className={styles.menu_item}
-            style={activeTab(location, "/collection")}
-          >
-            collection
-          </NavLink>
-        </li>
       </ul>
       <button className={styles.logout} onClick={onLogout}>
         logout
