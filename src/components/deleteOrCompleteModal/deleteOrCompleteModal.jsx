@@ -2,10 +2,20 @@ import React from "react";
 import styles from "./deleteOrCompleteModal.module.css";
 import { FaTimes } from "react-icons/fa";
 import bear from "../../img/bear.png";
+import { useLocation } from "react-router";
 
-const DeleteOrCompleteModal = ({ modalClose, hardBox, deleteHardBox }) => {
+const DeleteOrCompleteModal = ({
+  modalClose,
+  hardBox,
+  softBox,
+  deleteHardBox,
+  deletesoftBox,
+}) => {
+  const location = useLocation();
+
   const onSubmit = () => {
-    deleteHardBox(hardBox);
+    if (location.pathname === "/hardMode") deleteHardBox(hardBox);
+    else deletesoftBox(softBox);
   };
 
   return (
