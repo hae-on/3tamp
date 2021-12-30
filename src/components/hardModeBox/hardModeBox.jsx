@@ -12,7 +12,6 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
   const hardCliked = hardBox.isClicked;
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [isIndex, setIndex] = useState("");
   const [isClicked, setClicked] = useState(hardCliked);
 
   const titleRef = useRef();
@@ -66,7 +65,6 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
       ...stamp,
       [index]: !stamp[index],
     }));
-    setIndex(index);
   }
 
   useEffect(() => {

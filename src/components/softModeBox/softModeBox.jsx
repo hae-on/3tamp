@@ -3,8 +3,8 @@ import styles from "../hardModeBox/modeBox.module.css";
 import btn from "../../img/logo.png";
 import DeleteOrCompleteModal from "../deleteOrCompleteModal/deleteOrCompleteModal";
 import moment from "moment";
-import o from "../../img/hard_o.png";
-import x from "../../img/hard_x.png";
+import o from "../../img/soft_o.jpg";
+import x from "../../img/soft_x.jpg";
 
 const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
   const { title, color, startDate } = softBox;
@@ -13,7 +13,6 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
   const clickDate = softBox.isDate;
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [isIndex, setIndex] = useState("");
   const [isClicked, setClicked] = useState(softCliked);
   const [isDate, setDate] = useState(clickDate);
 
@@ -60,7 +59,6 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
       ...stamp,
       [index]: !stamp[index],
     }));
-    setIndex(index);
     setDate(today);
   }
 
