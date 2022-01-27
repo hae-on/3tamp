@@ -7,32 +7,16 @@ import o from "../../img/soft_o.jpg";
 import x from "../../img/soft_x.jpg";
 
 const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
-  const { title, color, startDate } = softBox;
+  const { title, color } = softBox;
 
   const softCliked = softBox.isClicked;
-  const clickDate = softBox.isDate;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [isClicked, setClicked] = useState(softCliked);
-  const [isDate, setDate] = useState(clickDate);
 
   const titleRef = useRef();
 
-  // 3주 기간 계산
-  const endDate = moment(startDate).add(20, "days");
-
-  const getDaysBetweenDates = function (startDate, endDate) {
-    const startAt = moment(startDate);
-    const now = startAt.clone(),
-      dates = [];
-    while (now.isSameOrBefore(endDate)) {
-      dates.push(now.format("MM-DD"));
-      now.add(1, "days");
-    }
-    return dates;
-  };
-
-  const dates = getDaysBetweenDates(startDate, endDate);
+  const dates = Array.from({ length: 21 }, (v, i) => i);
 
   // day와 형태를 맞추기 위해  format 변경
   const today = moment().format("MM-DD");
@@ -57,20 +41,16 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
   function toggleStamp(index) {
     setClicked((stamp) => ({
       ...stamp,
-      [index]: !stamp[index],
+      [index]: today,
     }));
-    setDate(today);
   }
 
   useEffect(() => {
     updatesoftBox({
       ...softBox,
       isClicked,
-      isDate,
     });
   }, [isClicked]);
-
-  console.log(clickDate);
 
   return (
     <>
@@ -113,7 +93,7 @@ const SoftModeBox = ({ softBox, updatesoftBox, deletesoftBox }) => {
                     src={softCliked[index] ? o : x}
                     alt="stamp"
                   />
-                  {softCliked[index] ? isDate : null}
+                  {softCliked[index] ? softCliked[index] : null}
                 </td>
               ))}
             </tr>

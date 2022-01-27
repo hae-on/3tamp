@@ -44,7 +44,6 @@ const AddBox = ({ modalClose, onAdd }) => {
         19: false,
         20: false,
       },
-      isDate: "12-08",
     };
     formRef.current.reset();
     onAdd(box);
