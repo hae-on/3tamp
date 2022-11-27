@@ -1,5 +1,12 @@
 @value keyColor, colorDarkGrey, colorLightBlack from "../../common/color.css";
 
+a,
+a:visited,
+a:hover,
+a:active {
+  color: colorDarkGrey;
+}
+
 .nav {
   /* position: fixed; */
   display: flex;
@@ -56,11 +63,15 @@
 
 .logout {
   cursor: pointer;
-  margin-right: 1em;
   margin-top: 0.9em;
   padding: 0em 1em;
   height: 2.3em;
   background-color: transparent;
   font-size: 1.1rem;
   color: colorDarkGrey;
+}
+
+.github {
+  display: inline-block;
+  margin-right: 2em;
 }

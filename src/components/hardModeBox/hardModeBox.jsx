@@ -81,15 +81,15 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
           <form>
             <input
               className={styles.title}
-              type="text"
-              name="title"
+              type='text'
+              name='title'
               ref={titleRef}
               value={title}
               onChange={onChange}
             />
           </form>
           <button className={styles.btn} onClick={modalClose}>
-            <img src={btn} alt="btn" className={styles.btn_img} />
+            <img src={btn} alt='btn' className={styles.btn_img} />
           </button>
           {modalOpen && (
             <DeleteOrCompleteModal
@@ -99,7 +99,7 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
             />
           )}
         </div>
-        <table border="2" className={styles.table}>
+        <table border='2' className={styles.table}>
           <thead>
             <tr className={styles.dates}>
               {dates.map((day, index) => (
@@ -113,7 +113,7 @@ const HardModeBox = ({ hardBox, updateHardBox, deleteHardBox }) => {
                   <img
                     className={styles.td_box}
                     src={hardCliked[index] ? o : x}
-                    alt="stamp"
+                    alt='stamp'
                   />
                   {day}
                 </td>
